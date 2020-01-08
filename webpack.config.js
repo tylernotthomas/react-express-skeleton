@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './client.js',
+  entry: './src/client.js',
   mode: process.env.NODE_ENV || 'development',
   output: {
     path: path.resolve(__dirname, 'build'),
