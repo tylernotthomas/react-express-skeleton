@@ -1,6 +1,6 @@
 {
-  "name": "ssr",
-  "version": "4.0.0",
+  "name": "react-express",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@babel/core": "latest",
@@ -10,8 +10,11 @@
     "@babel/preset-react": "latest",
     "@material-ui/core": "latest",
     "babel-loader": "latest",
+    "body-parser": "^1.19.0",
     "cross-env": "latest",
+    "dotenv": "^8.2.0",
     "express": "latest",
+    "knex": "^0.20.7",
     "nodemon": "latest",
     "npm-run-all": "latest",
     "react": "latest",

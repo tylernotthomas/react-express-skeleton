@@ -16,5 +16,10 @@ module.exports = {
         loader: 'babel-loader',
       },
     ],
-  },
+  }
+  // resolve: {
+  //   alias: {
+  //     Style: path.resolve(__dirname, 'public/style/')
+  //   }
+  // }
 };
