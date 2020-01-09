@@ -1,10 +1,17 @@
+"use strict";
+
+require('dotenv').config();
+
 import express from 'express';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ServerStyleSheets, ThemeProvider } from '@material-ui/core/styles';
 import App from './views/App';
-import theme from '../public/style/theme';
+import theme from '../public/style//theme';
+
+//middleware
+import bodyParser from "body-parser";
 
 function renderFullPage(html, css) {
   return `
@@ -48,6 +55,9 @@ function handleRender(req, res) {
 const app = express();
 
 app.use('/build', express.static('build'));
+// Body Parser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // This is fired every time the server-side receives a request.
 app.use(handleRender);
