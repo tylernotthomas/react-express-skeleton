@@ -1,33 +1,23 @@
-import React from 'react';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
+import React, {Component} from 'react';
 import Home from './components/Home';
-import Link from '@material-ui/core/Link';
+import Login from './components/Auth/Login';
+import { Switch, Route, withRouter } from "react-router-dom";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
+
+class App extends Component {
+    constructor(props){
+        super(props);
+    }    
+
+    render() {
+        return (
+            <Switch>
+                <Route exact path="/" render={() => <Home />}/>
+                <Route path="/login" render={() => <Login />}/>
+            </Switch>
+        );
+    }
 }
 
-export default function App() {
-  return (
-    <Container maxWidth="sm">
-      <Box my={4}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Server Rendering v4-beta example
-        </Typography>
-        <Home />
-        <Copyright />
-      </Box>
-    </Container>
-  );
-}
+export default withRouter(App);
+
