@@ -8,12 +8,10 @@ export default class AuthController {
         Auth().authenticate(username, (value) => {
             if (value.length != 0) {
                 // Valid login
-                console.log('Success')
-                return res.redirect('/');
+                return res.sendStatus(200);
               } else {
                 // Incorrect password
-                console.log('Fail')
-                return res.redirect('/login');
+                return res.sendStatus(401);
             }
         })
     }

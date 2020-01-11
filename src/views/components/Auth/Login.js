@@ -8,6 +8,7 @@ import {
 } from '@material-ui/core'
 import {withRouter} from "react-router-dom";
 import loginStyles from '../../../../public/style/loginStyles';
+import { Redirect } from 'react-router';
 
 
 class Login extends Component {
@@ -15,7 +16,8 @@ class Login extends Component {
         super(props);
         this.state = {
             username: "",
-            password: ""
+            password: "",
+            isSignedIn: false
         }
     };
 
@@ -32,8 +34,10 @@ class Login extends Component {
             username: this.state.username,
             password: this.state.password
         })
-        .then((response) => {
-            console.log(response)
+        .then((res) => {
+            if(res.status == 200){
+                this.setState({ isSignedIn: true })
+            }
         })
     }
 
@@ -42,7 +46,12 @@ class Login extends Component {
         const { classes } = this.props;
         const bull = <span className={classes.bullet}>•</span>;
 
+        if(this.state.isSignedIn){
+            return <Redirect exact to = "/"  />;
+        }
+
         return (
+
         <Grid container alignItems='center' direction='row' justify='center'>
             <Card className={classes.card}>
             <CardContent>
